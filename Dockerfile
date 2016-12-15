@@ -15,5 +15,6 @@ RUN mkdir results
 COPY *.jmx ./
 COPY *.csv ./
 VOLUME /results
-ENTRYPOINT ["/apache-jmeter-3.1/bin/jmeter", "-n", "-Jjmeter.save.saveservice.output_format=xml", "-Jjmeter.save.saveservice.assertion_results=all", "-Jjmeter.save.saveservice.response_data=true", "-Jjmeter.save.saveservice.autoflush=true", "-t", "csrf_token_csv_data.jmx", "-l", "/results/tests_results.jtl"]
-CMD ["-H", "web", "-P", "5000"]
+#ENTRYPOINT ["/apache-jmeter-3.1/bin/jmeter", "-n", "-Jjmeter.save.saveservice.output_format=xml", "-Jjmeter.save.saveservice.assertion_results=all", "-Jjmeter.save.saveservice.response_data=true", "-Jjmeter.save.saveservice.autoflush=true", "-t", "csrf_token_csv_data.jmx", "-l", "/results/tests_results.jtl"]
+#CMD ["-H", "web", "-P", "5000"]
+CMD ["/bin/bash"]
